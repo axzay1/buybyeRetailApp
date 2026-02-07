@@ -5,6 +5,26 @@ All notable changes to the BuyBye Mobile App will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+- Resolved CocoaPods dependency conflicts between Firebase plugins and Google Sign-In
+- Fixed GoogleUtilities/Environment version conflicts (v7.x vs v8.x incompatibility)
+- Fixed AppAuth version conflicts
+
+### Changed
+- Updated firebase_core from 2.24.2 to 4.4.0 (major version update)
+- Updated firebase_auth from 4.15.3 to 6.1.1 (major version update)
+- Updated firebase_storage from 11.5.6 to 12.1.0 (major version update)
+- Updated cloud_firestore from 4.13.6 to 6.1.2 (major version update)
+- Updated firebase_messaging from 14.7.9 to 16.1.1 (major version update)
+- Increased iOS minimum deployment target from 12.0 to 13.0
+- Updated CardTheme to CardThemeData for Flutter 3.32+ compatibility
+
+### Added
+- Created FIREBASE_MIGRATION.md with migration guide and breaking changes documentation
+- Added complete iOS project structure (Runner.xcodeproj, storyboards, assets)
+
 ## [1.0.0] - 2026-02-07
 
 ### Added

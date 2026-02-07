@@ -1,0 +1,135 @@
+# Firebase Dependencies Update - Migration Guide
+
+## Overview
+This document describes the Firebase dependencies update made to resolve CocoaPods dependency conflicts in the iOS build.
+
+## What Changed
+
+### Package Versions Updated
+
+| Package | Old Version | New Version | Major Changes |
+|---------|-------------|-------------|---------------|
+| firebase_core | 2.24.2 | 4.4.0 | Major version upgrade |
+| firebase_auth | 4.15.3 | 6.1.1 | Major version upgrade |
+| firebase_storage | 11.5.6 | 12.1.0 | Major version upgrade |
+| cloud_firestore | 4.13.6 | 6.1.2 | Major version upgrade |
+| firebase_messaging | 14.7.9 | 16.1.1 | Major version upgrade |
+
+### iOS Minimum Version
+- Updated minimum iOS deployment target from **12.0** to **13.0**
+- This change was necessary to support the latest Firebase iOS SDK
+
+## Why This Update Was Necessary
+
+The previous Firebase plugin versions had conflicting native iOS dependencies:
+
+1. **GoogleUtilities/Environment Conflict**:
+   - Old Firebase plugins required GoogleUtilities v7.x
+   - google_sign_in_ios required GoogleUtilities v8.x
+   - These versions were incompatible, causing CocoaPods resolution to fail
+
+2. **AppAuth Version Conflict**:
+   - Multiple plugins had overlapping but incompatible AppAuth version requirements
+
+The new versions all use compatible native dependencies that work together.
+
+## Breaking Changes to Watch For
+
+### 1. iOS Minimum Version
+- **Your app now requires iOS 13.0 or later**
+- If you need to support iOS 12.x devices, you cannot use these updates
+
+### 2. API Changes
+While we've updated the dependencies, there may be API changes in the major version updates. Key areas to test:
+
+#### Firebase Auth
+- Check if your authentication flows still work
+- Test sign-in, sign-out, and token refresh
+- Verify Firebase Auth state listeners
+
+#### Cloud Firestore
+- Test all database queries and writes
+- Verify real-time listeners
+- Check transaction handling
+
+#### Firebase Storage
+- Test file uploads and downloads
+- Verify metadata handling
+- Check storage reference paths
+
+#### Firebase Messaging
+- Test push notification reception
+- Verify notification handlers (foreground/background/terminated)
+- Check notification permissions flow
+
+## Steps to Apply This Update
+
+### 1. Clean Flutter Dependencies
+```bash
+flutter clean
+flutter pub get
+```
+
+### 2. Update iOS Pods
+```bash
+cd ios
+pod deintegrate
+pod repo update
+pod install
+cd ..
+```
+
+### 3. Run Your App
+```bash
+flutter run
+```
+
+## Testing Checklist
+
+- [ ] App builds successfully for iOS
+- [ ] Firebase Authentication works
+- [ ] Cloud Firestore queries and writes work
+- [ ] Firebase Storage uploads/downloads work
+- [ ] Push notifications are received
+- [ ] Google Sign-In works (if used)
+- [ ] All Firebase-dependent features function correctly
+
+## Troubleshooting
+
+### Issue: Pod install fails
+**Solution**: 
+```bash
+cd ios
+rm -rf Pods Podfile.lock
+pod cache clean --all
+pod install
+```
+
+### Issue: Build fails with "Minimum deployment target" error
+**Solution**: Ensure your Xcode project settings match:
+- In Xcode, open `Runner.xcodeproj`
+- Select the Runner target
+- Under "Deployment Info", set "iOS Deployment Target" to 13.0
+
+### Issue: Firebase not initializing
+**Solution**: Ensure you've run `flutter pub get` and the Firebase configuration files are present:
+- iOS: `ios/Runner/GoogleService-Info.plist`
+- Android: `android/app/google-services.json`
+
+## References
+
+- [Firebase Flutter Documentation](https://firebase.flutter.dev/)
+- [FlutterFire Release Notes](https://firebase.google.com/support/release-notes/flutter)
+- [Firebase iOS SDK Release Notes](https://firebase.google.com/support/release-notes/ios)
+
+## Support
+
+If you encounter issues after this update:
+1. Check the [FlutterFire GitHub Issues](https://github.com/firebase/flutterfire/issues)
+2. Review the [Firebase Flutter Migration Guides](https://firebase.flutter.dev/docs/migration/)
+3. Consult the package-specific changelogs on [pub.dev](https://pub.dev)
+
+---
+
+**Last Updated**: February 7, 2026  
+**Migration Required**: Yes (test thoroughly before deploying)
