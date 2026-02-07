@@ -1,0 +1,67 @@
+name: buybye_retail_app
+description: BuyBye - E-commerce platform where users earn B-coins by selling products and spend B-coins to buy products.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.4.9
+  riverpod_annotation: ^2.3.3
+
+  # Firebase
+  firebase_core: ^2.24.2
+  firebase_auth: ^4.15.3
+  firebase_storage: ^11.5.6
+  cloud_firestore: ^4.13.6
+  firebase_messaging: ^14.7.9
+
+  # Google Sign In
+  google_sign_in: ^6.2.1
+
+  # UI & Navigation
+  go_router: ^13.0.0
+  cached_network_image: ^3.3.1
+  flutter_svg: ^2.0.9
+  animations: ^2.0.11
+  shimmer: ^3.0.0
+  
+  # Utilities
+  intl: ^0.19.0
+  image_picker: ^1.0.7
+  share_plus: ^7.2.2
+  url_launcher: ^6.2.4
+  path_provider: ^2.1.2
+  shared_preferences: ^2.2.2
+  uuid: ^4.3.3
+  
+  # Icons
+  cupertino_icons: ^1.0.6
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  riverpod_generator: ^2.3.9
+  build_runner: ^2.4.8
+  riverpod_lint: ^2.3.7
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/logo/
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Regular.ttf
+        - asset: fonts/Roboto-Bold.ttf
+          weight: 700
