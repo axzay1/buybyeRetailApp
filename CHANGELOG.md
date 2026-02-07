@@ -19,11 +19,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated cloud_firestore from 4.13.6 to 6.1.2 (major version update)
 - Updated firebase_messaging from 14.7.9 to 16.1.1 (major version update)
 - Increased iOS minimum deployment target from 12.0 to 13.0
-- Updated CardTheme to CardThemeData for Flutter 3.32+ compatibility
 
 ### Added
 - Created FIREBASE_MIGRATION.md with migration guide and breaking changes documentation
-- Added complete iOS project structure (Runner.xcodeproj, storyboards, assets)
 
 ## [1.0.0] - 2026-02-07
 
