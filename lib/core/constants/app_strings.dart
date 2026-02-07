@@ -13,7 +13,6 @@ class AppStrings {
   static const String forgotPassword = 'Forgot Password?';
   static const String dontHaveAccount = "Don't have an account?";
   static const String alreadyHaveAccount = 'Already have an account?';
-  static const String signInWithGoogle = 'Sign in with Google';
   static const String displayName = 'Full Name';
   
   // Navigation

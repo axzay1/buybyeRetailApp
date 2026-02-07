@@ -101,40 +101,6 @@ class AuthController {
     }
   }
 
-  Future<void> signInWithGoogle() async {
-    try {
-      final credential = await _authService.signInWithGoogle();
-
-      // Create or update user document
-      if (credential.user != null) {
-        final userDoc = await _firestoreService.getDocument(
-          collection: 'users',
-          docId: credential.user!.uid,
-        );
-
-        if (!userDoc.exists) {
-          final userModel = UserModel(
-            id: credential.user!.uid,
-            email: credential.user!.email ?? '',
-            displayName: credential.user!.displayName ?? '',
-            photoURL: credential.user!.photoURL,
-            bCoinBalance: 0,
-            addresses: [],
-            createdAt: DateTime.now(),
-          );
-
-          await _firestoreService.setDocument(
-            collection: 'users',
-            docId: credential.user!.uid,
-            data: userModel.toMap(),
-          );
-        }
-      }
-    } catch (e) {
-      rethrow;
-    }
-  }
-
   Future<void> signOut() async {
     try {
       await _authService.signOut();
