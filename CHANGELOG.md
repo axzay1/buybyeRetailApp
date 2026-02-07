@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - **BREAKING**: Updated Dart SDK minimum requirement from 3.0.0 to 3.6.0
+- **BREAKING**: Added Flutter SDK minimum requirement of 3.27.0
 - Updated flutter_riverpod from 2.4.9 to 3.2.0 (major version update)
 - Updated riverpod_annotation from 2.3.3 to 3.0.3 (major version update)
 - Updated riverpod_generator from 2.3.9 to 3.0.3 (major version update)

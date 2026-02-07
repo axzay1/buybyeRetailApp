@@ -9,6 +9,7 @@ This document describes the comprehensive dependency updates made to resolve Coc
 | Component | Old Version | New Version |
 |-----------|-------------|-------------|
 | Dart SDK | >=3.0.0 | >=3.6.0 |
+| Flutter SDK | (not specified) | >=3.27.0 |
 | iOS Minimum | 12.0 | 13.0 |
 
 ### Package Versions Updated
@@ -52,11 +53,32 @@ The new versions all use compatible native dependencies that work together.
 
 ## Breaking Changes to Watch For
 
-### 1. iOS Minimum Version
+### 1. Flutter and Dart SDK Requirements
+- **Dart SDK now requires 3.6.0 or later**
+- **Flutter SDK now requires 3.27.0 or later**
+- Ensure your development environment is updated before running `flutter pub get`
+
+### 2. iOS Minimum Version
 - **Your app now requires iOS 13.0 or later**
 - If you need to support iOS 12.x devices, you cannot use these updates
 
-### 2. API Changes
+### 3. Riverpod State Management
+- Riverpod has been upgraded from 2.x to 3.x which includes breaking changes
+- Check [Riverpod 3.0 migration guide](https://riverpod.dev/docs/migration/from_state_notifier) for details
+- Key changes:
+  - StateNotifierProvider is deprecated, use NotifierProvider instead
+  - Family syntax changes
+  - Code generation improvements
+
+### 4. Google Sign-In
+- Updated from 6.x to 7.x with API changes
+- Review authentication flows after update
+
+### 5. Go Router
+- Updated from 13.x to 14.x
+- Check navigation routes and deep linking functionality
+
+### 6. API Changes
 While we've updated the dependencies, there may be API changes in the major version updates. Key areas to test:
 
 #### Firebase Auth
@@ -80,6 +102,22 @@ While we've updated the dependencies, there may be API changes in the major vers
 - Check notification permissions flow
 
 ## Steps to Apply This Update
+
+### 0. Update Your Development Environment
+**IMPORTANT: You must update Flutter and Dart first!**
+
+```bash
+# Check your current Flutter version
+flutter --version
+
+# Update Flutter to 3.27.x or later
+flutter upgrade
+
+# Verify you have Dart 3.6.x or later
+dart --version
+```
+
+If your Flutter version is below 3.27.0, you won't be able to use these package updates.
 
 ### 1. Clean Flutter Dependencies
 ```bash
