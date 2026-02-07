@@ -1,23 +1,40 @@
 # Firebase Dependencies Update - Migration Guide
 
 ## Overview
-This document describes the Firebase dependencies update made to resolve CocoaPods dependency conflicts in the iOS build.
+This document describes the comprehensive dependency updates made to resolve CocoaPods dependency conflicts and align the app with the latest SDKs and packages.
 
 ## What Changed
+
+### SDK Requirements
+| Component | Old Version | New Version |
+|-----------|-------------|-------------|
+| Dart SDK | >=3.0.0 | >=3.6.0 |
+| iOS Minimum | 12.0 | 13.0 |
 
 ### Package Versions Updated
 
 | Package | Old Version | New Version | Major Changes |
 |---------|-------------|-------------|---------------|
+| **State Management** |
+| flutter_riverpod | 2.4.9 | 3.2.0 | Major version upgrade |
+| riverpod_annotation | 2.3.3 | 3.0.3 | Major version upgrade |
+| riverpod_generator | 2.3.9 | 3.0.3 | Major version upgrade |
+| riverpod_lint | 2.3.7 | 3.0.3 | Major version upgrade |
+| build_runner | 2.4.8 | 2.7.1 | Minor version upgrade |
+| **Firebase** |
 | firebase_core | 2.24.2 | 4.4.0 | Major version upgrade |
 | firebase_auth | 4.15.3 | 6.1.1 | Major version upgrade |
 | firebase_storage | 11.5.6 | 12.1.0 | Major version upgrade |
 | cloud_firestore | 4.13.6 | 6.1.2 | Major version upgrade |
 | firebase_messaging | 14.7.9 | 16.1.1 | Major version upgrade |
-
-### iOS Minimum Version
-- Updated minimum iOS deployment target from **12.0** to **13.0**
-- This change was necessary to support the latest Firebase iOS SDK
+| **Authentication** |
+| google_sign_in | 6.2.1 | 7.2.0 | Major version upgrade |
+| **UI & Navigation** |
+| go_router | 13.0.0 | 14.6.2 | Major version upgrade |
+| flutter_svg | 2.0.9 | 2.0.10 | Patch update |
+| **Utilities** |
+| url_launcher | 6.2.4 | 6.2.5 | Patch update |
+| path_provider | 2.1.2 | 2.1.3 | Patch update |
 
 ## Why This Update Was Necessary
 

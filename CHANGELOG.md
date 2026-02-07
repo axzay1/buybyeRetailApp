@@ -7,12 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- **BREAKING**: Updated Dart SDK minimum requirement from 3.0.0 to 3.6.0
+- Updated flutter_riverpod from 2.4.9 to 3.2.0 (major version update)
+- Updated riverpod_annotation from 2.3.3 to 3.0.3 (major version update)
+- Updated riverpod_generator from 2.3.9 to 3.0.3 (major version update)
+- Updated riverpod_lint from 2.3.7 to 3.0.3 (major version update)
+- Updated build_runner from 2.4.8 to 2.7.1
+- Updated google_sign_in from 6.2.1 to 7.2.0 (major version update)
+- Updated go_router from 13.0.0 to 14.6.2 (major version update)
+- Updated flutter_svg from 2.0.9 to 2.0.10
+- Updated url_launcher from 6.2.4 to 6.2.5
+- Updated path_provider from 2.1.2 to 2.1.3
+
 ### Fixed
 - Resolved CocoaPods dependency conflicts between Firebase plugins and Google Sign-In
 - Fixed GoogleUtilities/Environment version conflicts (v7.x vs v8.x incompatibility)
 - Fixed AppAuth version conflicts
 
-### Changed
+### Previous Updates (Earlier in Branch)
 - Updated firebase_core from 2.24.2 to 4.4.0 (major version update)
 - Updated firebase_auth from 4.15.3 to 6.1.1 (major version update)
 - Updated firebase_storage from 11.5.6 to 12.1.0 (major version update)
