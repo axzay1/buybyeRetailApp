@@ -18,7 +18,7 @@ BuyBye is a complete Flutter mobile application featuring a secure B-coin wallet
 - 📦 **Order Tracking**: Live order tracking with status updates and order history
 - 👤 **User Management**: Profile management, address book, settings
 - 🌓 **Theme Support**: Beautiful Light & Dark mode with Blue & Red color scheme
-- 🔐 **Authentication**: Email/Password and Google Sign-In via Firebase
+- 🔐 **Authentication**: Email/Password authentication via Firebase
 
 ## 🛠️ Technology Stack
 
@@ -61,7 +61,7 @@ flutter pub get
 1. Go to [Firebase Console](https://console.firebase.google.com/)
 2. Click "Add project" and follow the setup wizard
 3. Enable the following services:
-   - **Authentication** (Email/Password, Google Sign-In)
+   - **Authentication** (Email/Password only - Google Sign-In has been removed due to iOS dependency conflicts)
    - **Cloud Firestore**
    - **Cloud Storage**
 
@@ -405,8 +405,7 @@ flutter build ipa --release
 
 ### Google Sign-In not working
 
-- Verify SHA-1 fingerprint is added in Firebase Console (Android)
-- Check that Google Sign-In is enabled in Firebase Authentication
+**Note**: Google Sign-In has been removed from this app due to iOS CocoaPods dependency conflicts. See `COCOAPODS_FIX.md` for details. Email/Password authentication is still fully functional.
 
 ### Build errors
 

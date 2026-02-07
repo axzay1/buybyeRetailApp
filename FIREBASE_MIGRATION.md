@@ -29,7 +29,7 @@ This document describes the comprehensive dependency updates made to resolve Coc
 | cloud_firestore | 4.13.6 | 6.1.2 | Major version upgrade |
 | firebase_messaging | 14.7.9 | 16.1.1 | Major version upgrade |
 | **Authentication** |
-| google_sign_in | 6.2.1 | 7.2.0 | Major version upgrade |
+| google_sign_in | 6.2.1 | REMOVED | Removed due to GoogleUtilities version conflict |
 | **UI & Navigation** |
 | go_router | 13.0.0 | 14.6.2 | Major version upgrade |
 | flutter_svg | 2.0.9 | 2.0.10 | Patch update |
@@ -39,17 +39,14 @@ This document describes the comprehensive dependency updates made to resolve Coc
 
 ## Why This Update Was Necessary
 
-The previous Firebase plugin versions had conflicting native iOS dependencies:
+The Firebase plugin versions had conflicting native iOS dependencies that were resolved by removing the conflicting package:
 
-1. **GoogleUtilities/Environment Conflict**:
-   - Old Firebase plugins required GoogleUtilities v7.x
-   - google_sign_in_ios required GoogleUtilities v8.x
+1. **GoogleUtilities/Environment Conflict** (RESOLVED):
+   - Firebase plugins (auth, storage, messaging) required GoogleUtilities v7.x (via Firebase iOS SDK 10.25.0)
+   - google_sign_in_ios required GoogleUtilities v8.x (via GoogleSignIn 8.0)
    - These versions were incompatible, causing CocoaPods resolution to fail
-
-2. **AppAuth Version Conflict**:
-   - Multiple plugins had overlapping but incompatible AppAuth version requirements
-
-The new versions all use compatible native dependencies that work together.
+   - **Solution**: Removed google_sign_in package to eliminate the conflict
+   - See `COCOAPODS_FIX.md` for detailed resolution information
 
 ## Breaking Changes to Watch For
 
@@ -71,8 +68,8 @@ The new versions all use compatible native dependencies that work together.
   - Code generation improvements
 
 ### 4. Google Sign-In
-- Updated from 6.x to 7.x with API changes
-- Review authentication flows after update
+
+**REMOVED**: Google Sign-In has been removed from the app to resolve iOS CocoaPods dependency conflicts. Email/Password authentication remains fully functional. See `COCOAPODS_FIX.md` for details.
 
 ### 5. Go Router
 - Updated from 13.x to 14.x

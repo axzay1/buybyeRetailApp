@@ -56,29 +56,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     }
   }
 
-  Future<void> _signInWithGoogle() async {
-    setState(() => _isLoading = true);
-
-    try {
-      final controller = ref.read(authControllerProvider);
-      await controller.signInWithGoogle();
-      
-      if (mounted) {
-        context.go('/');
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(e.toString())),
-        );
-      }
-    } finally {
-      if (mounted) {
-        setState(() => _isLoading = false);
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -163,28 +140,6 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     text: AppStrings.login,
                     onPressed: _signIn,
                     isLoading: _isLoading,
-                  ),
-                  const SizedBox(height: 16),
-                  Row(
-                    children: [
-                      const Expanded(child: Divider()),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: Text(
-                          'OR',
-                          style: Theme.of(context).textTheme.bodySmall,
-                        ),
-                      ),
-                      const Expanded(child: Divider()),
-                    ],
-                  ),
-                  const SizedBox(height: 16),
-                  CustomButton(
-                    text: AppStrings.signInWithGoogle,
-                    onPressed: _signInWithGoogle,
-                    isLoading: _isLoading,
-                    isOutlined: true,
-                    icon: Icons.login,
                   ),
                   const SizedBox(height: 24),
                   Row(
