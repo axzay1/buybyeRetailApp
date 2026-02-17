@@ -71,6 +71,7 @@ To resolve the GoogleUtilities/Environment version conflict between Firebase iOS
 
 ### 3. Riverpod State Management
 - Riverpod has been upgraded from 2.x to 3.x which includes breaking changes
+- **Important**: `riverpod_annotation` has been updated to version 4.0.0 to ensure compatibility with `flutter_riverpod` 3.2.0
 - Check [Riverpod 3.0 migration guide](https://riverpod.dev/docs/migration/from_state_notifier) for details
 - Key changes:
   - StateNotifierProvider is deprecated, use NotifierProvider instead

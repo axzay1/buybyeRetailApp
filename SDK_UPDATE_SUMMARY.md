@@ -50,7 +50,7 @@ environment:
 | Package | Old Version | New Version | Notes |
 |---------|-------------|-------------|-------|
 | flutter_riverpod | 2.4.9 | **3.2.0** | Major API changes |
-| riverpod_annotation | 2.3.3 | **3.0.3** | Code generation updates |
+| riverpod_annotation | 2.3.3 → 3.0.3 | **4.0.0** | Updated for flutter_riverpod 3.2.x compatibility |
 | riverpod_generator | 2.3.9 | **3.0.3** | Code generation updates |
 | riverpod_lint | 2.3.7 | **3.0.3** | New lint rules |
 | build_runner | 2.4.8 | **2.7.1** | Required for Riverpod 3.x |
