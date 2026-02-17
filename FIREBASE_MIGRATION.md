@@ -162,6 +162,17 @@ flutter run
 
 ## Troubleshooting
 
+### Issue: Pod install fails with "Unable to find a target named RunnerTests"
+**Solution**: 
+The Podfile has been updated to remove the non-existent `RunnerTests` target reference. This target was part of the default Flutter template but doesn't exist in the actual Xcode project.
+
+If you still encounter this error after pulling the latest changes:
+```bash
+cd ios
+rm -rf Pods Podfile.lock
+pod install
+```
+
 ### Issue: Pod install fails with GoogleUtilities/Environment conflict
 **Solution**: 
 The Podfile has been updated to explicitly require GoogleUtilities/Environment ~> 8.0 to ensure compatibility. If you still encounter issues:

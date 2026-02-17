@@ -29,6 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed Riverpod package version conflict (riverpod_annotation 3.0.3 incompatible with flutter_riverpod 3.2.0)
 - Fixed riverpod_generator version conflict (3.0.3 incompatible with riverpod_annotation 4.0.0)
 - Fixed firebase_storage version conflict (12.1.0 incompatible with firebase_core 4.4.0 and firebase_auth 6.1.1)
+- Fixed CocoaPods error: Removed non-existent RunnerTests target from Podfile
 
 ### Previous Updates (Earlier in Branch)
 - Updated firebase_core from 2.24.2 to 4.4.0 (major version update)
