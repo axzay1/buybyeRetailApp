@@ -12,8 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **BREAKING**: Added Flutter SDK minimum requirement of 3.27.0
 - Updated flutter_riverpod from 2.4.9 to 3.2.0 (major version update)
 - Updated riverpod_annotation from 2.3.3 to 4.0.0 (major version update, fixes compatibility with flutter_riverpod 3.2.x)
-- Updated riverpod_generator from 2.3.9 to 3.0.3 (major version update)
-- Updated riverpod_lint from 2.3.7 to 3.0.3 (major version update)
+- Updated riverpod_generator from 2.3.9 to 4.0.0 (major version update, matches riverpod_annotation 4.0.0)
+- Updated riverpod_lint from 2.3.7 to 3.1.0 (updated to latest compatible version)
 - Updated build_runner from 2.4.8 to 2.7.1
 - Updated google_sign_in from 6.2.1 to 7.2.0 (major version update)
 - Updated go_router from 13.0.0 to 14.6.2 (major version update)
@@ -27,6 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added explicit Podfile constraint to force GoogleUtilities/Environment ~> 8.0
 - Fixed AppAuth version conflicts
 - Fixed Riverpod package version conflict (riverpod_annotation 3.0.3 incompatible with flutter_riverpod 3.2.0)
+- Fixed riverpod_generator version conflict (3.0.3 incompatible with riverpod_annotation 4.0.0)
 
 ### Previous Updates (Earlier in Branch)
 - Updated firebase_core from 2.24.2 to 4.4.0 (major version update)
