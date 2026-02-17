@@ -28,11 +28,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed AppAuth version conflicts
 - Fixed Riverpod package version conflict (riverpod_annotation 3.0.3 incompatible with flutter_riverpod 3.2.0)
 - Fixed riverpod_generator version conflict (3.0.3 incompatible with riverpod_annotation 4.0.0)
+- Fixed firebase_storage version conflict (12.1.0 incompatible with firebase_core 4.4.0 and firebase_auth 6.1.1)
 
 ### Previous Updates (Earlier in Branch)
 - Updated firebase_core from 2.24.2 to 4.4.0 (major version update)
 - Updated firebase_auth from 4.15.3 to 6.1.1 (major version update)
-- Updated firebase_storage from 11.5.6 to 12.1.0 (major version update)
+- Updated firebase_storage from 11.5.6 to 13.0.6 (major version update, fixes compatibility with firebase_core 4.4.0)
 - Updated cloud_firestore from 4.13.6 to 6.1.2 (major version update)
 - Updated firebase_messaging from 14.7.9 to 16.1.1 (major version update)
 - Increased iOS minimum deployment target from 12.0 to 13.0

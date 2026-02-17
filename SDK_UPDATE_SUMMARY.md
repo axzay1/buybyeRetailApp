@@ -60,7 +60,7 @@ environment:
 |---------|-------------|-------------|
 | firebase_core | 2.24.2 | **4.4.0** |
 | firebase_auth | 4.15.3 | **6.1.1** |
-| firebase_storage | 11.5.6 | **12.1.0** |
+| firebase_storage | 11.5.6 | **13.0.6** |
 | cloud_firestore | 4.13.6 | **6.1.2** |
 | firebase_messaging | 14.7.9 | **16.1.1** |
 
