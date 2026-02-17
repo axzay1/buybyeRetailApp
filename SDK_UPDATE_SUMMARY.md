@@ -42,6 +42,7 @@ environment:
 ### iOS Configuration
 - Minimum iOS: 12.0 → **13.0**
 - Updated in: Podfile, project.pbxproj, AppFrameworkInfo.plist
+- Added explicit GoogleUtilities/Environment ~> 8.0 constraint in Podfile to resolve dependency conflicts
 
 ### Package Updates
 
@@ -49,17 +50,17 @@ environment:
 | Package | Old Version | New Version | Notes |
 |---------|-------------|-------------|-------|
 | flutter_riverpod | 2.4.9 | **3.2.0** | Major API changes |
-| riverpod_annotation | 2.3.3 | **3.0.3** | Code generation updates |
-| riverpod_generator | 2.3.9 | **3.0.3** | Code generation updates |
-| riverpod_lint | 2.3.7 | **3.0.3** | New lint rules |
-| build_runner | 2.4.8 | **2.7.1** | Required for Riverpod 3.x |
+| riverpod_annotation | 2.3.3 | **4.0.0** | Updated for flutter_riverpod 3.2.x compatibility (was 3.0.3 briefly) |
+| riverpod_generator | 2.3.9 | **4.0.0** | Updated to match riverpod_annotation 4.0.0 |
+| riverpod_lint | 2.3.7 | **3.1.0** | Updated to latest compatible version |
+| build_runner | 2.4.8 | **2.7.1** | Required for Riverpod 3.x+ |
 
 #### Firebase (Already Updated in Phase 1)
 | Package | Old Version | New Version |
 |---------|-------------|-------------|
 | firebase_core | 2.24.2 | **4.4.0** |
 | firebase_auth | 4.15.3 | **6.1.1** |
-| firebase_storage | 11.5.6 | **12.1.0** |
+| firebase_storage | 11.5.6 | **13.0.6** |
 | cloud_firestore | 4.13.6 | **6.1.2** |
 | firebase_messaging | 14.7.9 | **16.1.1** |
 
@@ -103,11 +104,23 @@ All updated packages now use **compatible versions** of native iOS dependencies:
 - Firebase plugins: Use v8.x
 - Google Sign-In: Uses v8.x via AppCheckCore
 - **No more version conflicts!**
+- **Podfile explicitly enforces v8.x** to prevent CocoaPods from trying incompatible versions
 
 ✅ **AppAuth**: All packages use compatible versions
 - Google Sign-In: Compatible with latest
 - Firebase Auth: Compatible with latest
 - **No more version conflicts!**
+
+### Podfile Constraint
+To ensure CocoaPods resolves to GoogleUtilities 8.x, an explicit constraint has been added to `ios/Podfile`:
+```ruby
+pod 'GoogleUtilities/Environment', '~> 8.0'
+```
+
+This constraint:
+- Forces CocoaPods to use GoogleUtilities/Environment version 8.x
+- Prevents version resolution conflicts between Firebase and Google Sign-In
+- Ensures all dependencies use compatible native library versions
 
 ## Breaking Changes
 

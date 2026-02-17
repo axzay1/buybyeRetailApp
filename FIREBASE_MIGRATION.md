@@ -51,6 +51,13 @@ The previous Firebase plugin versions had conflicting native iOS dependencies:
 
 The new versions all use compatible native dependencies that work together.
 
+### Resolution of GoogleUtilities Conflict
+
+To resolve the GoogleUtilities/Environment version conflict between Firebase iOS SDK and google_sign_in_ios:
+- Added explicit constraint in `ios/Podfile` to force GoogleUtilities/Environment ~> 8.0
+- This ensures all Firebase and Google Sign-In dependencies use compatible versions
+- The current Firebase packages (4.x+) and google_sign_in (7.x+) both support GoogleUtilities 8.x
+
 ## Breaking Changes to Watch For
 
 ### 1. Flutter and Dart SDK Requirements
@@ -63,7 +70,11 @@ The new versions all use compatible native dependencies that work together.
 - If you need to support iOS 12.x devices, you cannot use these updates
 
 ### 3. Riverpod State Management
-- Riverpod has been upgraded from 2.x to 3.x which includes breaking changes
+- Riverpod has been upgraded from 2.x to 3.x/4.x which includes breaking changes
+- **Important**: All Riverpod packages must use compatible versions:
+  - `riverpod_annotation` updated to 4.0.0 for compatibility with `flutter_riverpod` 3.2.0
+  - `riverpod_generator` updated to 4.0.0 to match `riverpod_annotation` 4.0.0
+  - `riverpod_lint` updated to 3.1.0 for latest linting rules
 - Check [Riverpod 3.0 migration guide](https://riverpod.dev/docs/migration/from_state_notifier) for details
 - Key changes:
   - StateNotifierProvider is deprecated, use NotifierProvider instead
@@ -150,6 +161,27 @@ flutter run
 - [ ] All Firebase-dependent features function correctly
 
 ## Troubleshooting
+
+### Issue: Pod install fails with "Unable to find a target named RunnerTests"
+**Solution**: 
+The Podfile has been updated to remove the non-existent `RunnerTests` target reference. This target was part of the default Flutter template but doesn't exist in the actual Xcode project.
+
+If you still encounter this error after pulling the latest changes:
+```bash
+cd ios
+rm -rf Pods Podfile.lock
+pod install
+```
+
+### Issue: Pod install fails with GoogleUtilities/Environment conflict
+**Solution**: 
+The Podfile has been updated to explicitly require GoogleUtilities/Environment ~> 8.0 to ensure compatibility. If you still encounter issues:
+```bash
+cd ios
+rm -rf Pods Podfile.lock
+pod cache clean --all
+pod install
+```
 
 ### Issue: Pod install fails
 **Solution**: 
