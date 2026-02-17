@@ -42,6 +42,7 @@ environment:
 ### iOS Configuration
 - Minimum iOS: 12.0 → **13.0**
 - Updated in: Podfile, project.pbxproj, AppFrameworkInfo.plist
+- Added explicit GoogleUtilities/Environment ~> 8.0 constraint in Podfile to resolve dependency conflicts
 
 ### Package Updates
 
@@ -103,11 +104,23 @@ All updated packages now use **compatible versions** of native iOS dependencies:
 - Firebase plugins: Use v8.x
 - Google Sign-In: Uses v8.x via AppCheckCore
 - **No more version conflicts!**
+- **Podfile explicitly enforces v8.x** to prevent CocoaPods from trying incompatible versions
 
 ✅ **AppAuth**: All packages use compatible versions
 - Google Sign-In: Compatible with latest
 - Firebase Auth: Compatible with latest
 - **No more version conflicts!**
+
+### Podfile Constraint
+To ensure CocoaPods resolves to GoogleUtilities 8.x, an explicit constraint has been added to `ios/Podfile`:
+```ruby
+pod 'GoogleUtilities/Environment', '~> 8.0'
+```
+
+This constraint:
+- Forces CocoaPods to use GoogleUtilities/Environment version 8.x
+- Prevents version resolution conflicts between Firebase and Google Sign-In
+- Ensures all dependencies use compatible native library versions
 
 ## Breaking Changes
 

@@ -24,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Resolved CocoaPods dependency conflicts between Firebase plugins and Google Sign-In
 - Fixed GoogleUtilities/Environment version conflicts (v7.x vs v8.x incompatibility)
+- Added explicit Podfile constraint to force GoogleUtilities/Environment ~> 8.0
 - Fixed AppAuth version conflicts
 
 ### Previous Updates (Earlier in Branch)
