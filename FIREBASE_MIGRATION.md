@@ -51,6 +51,13 @@ The previous Firebase plugin versions had conflicting native iOS dependencies:
 
 The new versions all use compatible native dependencies that work together.
 
+### Resolution of GoogleUtilities Conflict
+
+To resolve the GoogleUtilities/Environment version conflict between Firebase iOS SDK and google_sign_in_ios:
+- Added explicit constraint in `ios/Podfile` to force GoogleUtilities/Environment ~> 8.0
+- This ensures all Firebase and Google Sign-In dependencies use compatible versions
+- The current Firebase packages (4.x+) and google_sign_in (7.x+) both support GoogleUtilities 8.x
+
 ## Breaking Changes to Watch For
 
 ### 1. Flutter and Dart SDK Requirements
@@ -150,6 +157,16 @@ flutter run
 - [ ] All Firebase-dependent features function correctly
 
 ## Troubleshooting
+
+### Issue: Pod install fails with GoogleUtilities/Environment conflict
+**Solution**: 
+The Podfile has been updated to explicitly require GoogleUtilities/Environment ~> 8.0 to ensure compatibility. If you still encounter issues:
+```bash
+cd ios
+rm -rf Pods Podfile.lock
+pod cache clean --all
+pod install
+```
 
 ### Issue: Pod install fails
 **Solution**: 

@@ -32,6 +32,11 @@ target 'Runner' do
   use_modular_headers!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  
+  # Force GoogleUtilities to version 8.x to resolve compatibility between
+  # Firebase iOS SDK and google_sign_in_ios
+  pod 'GoogleUtilities/Environment', '~> 8.0'
+  
   target 'RunnerTests' do
     inherit! :search_paths
   end
